@@ -1,0 +1,28 @@
+# Use C as the language
+Language: C
+
+# Indentation style
+IndentWidth: 2
+UseTab: Never
+
+# Brace styles and other options
+BreakBeforeBraces: Linux
+AllowShortFunctionsOnASingleLine: InlineOnly
+
+# Additional formatting options
+ColumnLimit: 0
+PointerAlignment: Left
+SpaceBeforeParens: ControlStatements
+SpaceAfterCStyleCast: true
+
+# Control alignment and spacing
+AlignAfterOpenBracket: DontAlign
+AlignOperands: false
+AlignConsecutiveAssignments: false
+AlignConsecutiveDeclarations: false
+AlignTrailingComments: false
+
+# Other C-specific options
+IndentCaseLabels: true
+IndentPPDirectives: None
+ReflowComments: false

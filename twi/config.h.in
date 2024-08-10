@@ -1,0 +1,61 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+#ifndef TWI_CONFIG_H_
+#define TWI_CONFIG_H_
+
+#cmakedefine HAS_SIZE_T
+#cmakedefine HAS_UINT64_T
+#cmakedefine HAS_UINT32_T
+#cmakedefine HAS_UINT16_T
+#cmakedefine HAS_UINT8_T
+#cmakedefine TWI_TRANSMISSION_API
+#cmakedefine HEADER_FOUND_STDINT_H
+#cmakedefine HEADER_FOUND_STDDEF_H
+#cmakedefine HEADER_FOUND_INTTYPES_H
+#cmakedefine HEADER_FOUND_SYS_TYPES_H
+
+#if defined(HEADER_FOUND_STDDEF_H)
+#include <stddef.h>
+#endif
+
+#if defined(HEADER_FOUND_STDINT_H)
+#include <stdint.h>
+#elif defined(HEADER_FOUND_INTTYPES_H)
+#include <inttypes.h>
+#elif defined(HEADER_FOUND_SYS_TYPES_H)
+#include <sys/types.h>
+#else
+#error "No suitable header found for standard integer types"
+#endif
+
+// TODO: Do the same thing we're doing for `size_t` for all the below
+typedef uint8_t twi_u8;
+typedef int8_t twi_s8;
+typedef uint32_t twi_u32;
+typedef uint16_t twi_u16;
+typedef int16_t twi_s16;
+typedef int32_t twi_s32;
+typedef uint64_t twi_u64;
+typedef int64_t twi_s64;
+
+#if defined(HAS_SIZE_T)
+typedef size_t twi_size_t;
+#elif defined(HAS_UINT64_T)
+typedef uint64_t twi_size_t;
+#elif defined(HAS_UINT32_T)
+typedef uint32_t twi_size_t;
+#elif defined(HAS_UINT16_T)
+typedef uint16_t twi_size_t;
+#elif defined(HAS_UINT8_T)
+typedef uint8_t twi_size_t;
+#else
+#error "No suitable type for twi_size_t found"
+#endif
+
+#endif // TWI_CONFIG_H_
+
+#ifdef __cplusplus
+}
+#endif
